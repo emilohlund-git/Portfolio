@@ -1,4 +1,4 @@
-![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app=portfolio-tz2h1i0g7-emilohlund-git.vercel.app)
+![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app=portfolio-jade-kappa)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
