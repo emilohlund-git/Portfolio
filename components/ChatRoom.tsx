@@ -11,7 +11,8 @@ const ChatRoom = (props) => {
     setNewMessage(event.target.value);
   };
 
-  const handleSendMessage = () => {
+  const handleSendMessage = (e) => {
+    e.preventDefault();
     sendMessage(newMessage);
     setNewMessage('');
   };
@@ -33,19 +34,21 @@ const ChatRoom = (props) => {
         </ol>
       </div>
       <div className='flex flex-wrap '>
-        <input
-          type='text'
-          value={newMessage}
-          onChange={handleNewMessageChange}
-          placeholder='Write message...'
-          className='form-input'
-        />
-        <button
-          onClick={handleSendMessage}
-          className='text-white bg-pink-500 pl-5 pr-5 outline-none border-none'
-        >
-          Send
-        </button>
+        <form onSubmit={handleSendMessage}>
+          <input
+            type='text'
+            value={newMessage}
+            onChange={handleNewMessageChange}
+            placeholder='Write message...'
+            className='form-input'
+          />
+          <button
+            type='submit'
+            className='text-white bg-pink-500 pl-5 pr-5 pt-2 pb-2 outline-none border-none'
+          >
+            Send
+          </button>
+        </form>
       </div>
     </div>
   );

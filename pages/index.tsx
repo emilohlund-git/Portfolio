@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import Image from 'next/image';
 import { useState } from 'react';
 import 'tailwindcss/tailwind.css';
@@ -9,6 +10,10 @@ export default function Home() {
 
   return (
     <>
+      <Head>
+        <title>Emil Öhlund</title>
+        <link rel='shortcut icon' href='/favicon.ico' />
+      </Head>
       <ChatRoom></ChatRoom>
       <div className='relative w-full flex flex-wrap content-center justify-center mt-20'>
         <Image
