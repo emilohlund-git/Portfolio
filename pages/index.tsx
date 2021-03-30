@@ -12,7 +12,14 @@ export default function Home() {
     <>
       <Head>
         <title>Emil Öhlund</title>
-        <link rel='shortcut icon' href='/favicon.ico' />
+        <link rel='shortcut icon' href='/favicon-16x16.png' />
+        <link rel='apple-touch-icon' href='/apple-touch-icon.png'></link>
+        <link rel='manifest' href='/site.webmanifest'></link>
+        <meta name='theme-color' content='#B36185' />
+        <meta
+          name='Description'
+          content='Home of Emil Öhlund, Fullstack Developer.'
+        ></meta>
       </Head>
       <ChatRoom></ChatRoom>
       <div className='relative w-full flex flex-wrap content-center justify-center mt-20'>
@@ -145,6 +152,7 @@ export default function Home() {
           </h1>
           <Image
             className='mt-10'
+            alt='Diploma from Code Institute'
             src='https://api.accredible.com/v1/frontend/credential_website_embed_image/certificate/21613261'
             width={450}
             height={650}
