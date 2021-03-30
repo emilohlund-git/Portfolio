@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import 'tailwindcss/tailwind.css';
+import ChatRoom from '../components/ChatRoom';
 
 export default function Home() {
   const [hovered, setHovered] = useState(false);
@@ -8,6 +9,7 @@ export default function Home() {
 
   return (
     <>
+      <ChatRoom></ChatRoom>
       <div className='relative w-full flex flex-wrap content-center justify-center mt-20'>
         <Image
           className={
