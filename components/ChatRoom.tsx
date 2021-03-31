@@ -44,10 +44,10 @@ const ChatRoom = (props) => {
       <div
         ref={messageEl}
         className={`messages-container bg-gray-800 max-h-96 overflow-y-scroll ${
-          closed ? 'p-3 h-96' : 'h-0 p-0'
+          !closed ? 'p-3 h-96' : 'h-0 p-0'
         }`}
       >
-        {closed ? (
+        {!closed ? (
           <ol className='flex flex-col messages-list text-white'>
             {messages.map((message, i) => (
               <li
@@ -66,7 +66,7 @@ const ChatRoom = (props) => {
           ''
         )}
       </div>
-      {closed ? (
+      {!closed ? (
         <form onSubmit={handleSendMessage}>
           <div className='flex'>
             <input
@@ -78,7 +78,7 @@ const ChatRoom = (props) => {
             />
             <button
               type='submit'
-              className='focus:outline-none focus:ring-0 focus:border-transparent w-3/12 text-white bg-pink-500 pl-5 pr-5 pt-2 pb-2 outline-none border-none'
+              className='focus:outline-none focus:ring-0 focus:border-transparent w-3/12 text-white bg-pink-600 pl-5 pr-5 pt-2 pb-2 outline-none border-none'
             >
               Send
             </button>

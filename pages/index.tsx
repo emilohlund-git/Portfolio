@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import 'tailwindcss/tailwind.css';
 import ChatRoom from '../components/ChatRoom';
+import { GA_TRACKING_ID } from '../lib/gtag';
 
 export default function Home() {
   const [hovered, setHovered] = useState(false);
@@ -16,6 +17,23 @@ export default function Home() {
         <link rel='apple-touch-icon' href='/apple-touch-icon.png'></link>
         <link rel='manifest' href='/site.webmanifest'></link>
         <meta name='theme-color' content='#B36185' />
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+        />
+        <script
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{
+            __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_TRACKING_ID}', {
+              page_path: window.location.pathname,
+            });
+          `,
+          }}
+        />
         <meta
           name='Description'
           content='Home of Emil Öhlund, Fullstack Developer.'
