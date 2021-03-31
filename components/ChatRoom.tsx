@@ -22,6 +22,13 @@ const ChatRoom = (props) => {
     }
   }, []);
 
+  useEffect(() => {
+    if (messages.length > 0 && closed) {
+      document.getElementById('new-messages').innerHTML = 'New message!';
+      console.log('new message!');
+    }
+  }, [messages]);
+
   const handleSendMessage = (e) => {
     e.preventDefault();
     sendMessage(newMessage);
@@ -29,21 +36,26 @@ const ChatRoom = (props) => {
   };
 
   const closeChat = () => {
+    if (closed) {
+      document.getElementById('new-messages').innerHTML = '';
+    }
     setClosed(!closed);
   };
 
   return (
-    <div className='container fixed z-10 bottom-0 w-96'>
+    <div className='container fixed z-20 bottom-0 lg:w-96'>
       <div
         onClick={closeChat}
-        className='cursor-pointer flex justify-between
-       text-white p-3 bg-gradient-to-l from-pink-500 to-pink-700 rounded-t-lg'
+        className='cursor-pointer flex justify-between align-middle
+       text-white p-4 bg-gradient-to-l from-pink-500 to-pink-700 rounded-t-lg'
       >
         <p>Chat with Emil fans</p>
+        <p id='new-messages'></p>
       </div>
+
       <div
         ref={messageEl}
-        className={`messages-container bg-gray-800 max-h-96 overflow-y-scroll ${
+        className={`messages-container bg-gradient-to-l from-gray-100 to-gray-200 max-h-96 overflow-y-scroll ${
           !closed ? 'p-3 h-96' : 'h-0 p-0'
         }`}
       >
